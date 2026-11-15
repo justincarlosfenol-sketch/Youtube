@@ -1,0 +1,26 @@
+# Each concept is paired with its best title. Publish with A; A/B with YouTube "Test & Compare".
+thumbnails:
+  - id: A-number
+    template: number
+    number: "{{be|y1}}"
+    unit: "YEARS"
+    caption: "before buying wins"
+    title: "Rent vs Buy at 7%: The Breakeven Year Nobody Shows You"
+  - id: B-versus
+    template: versus
+    left: {label: "Mortgage", value: "{{pi|money}}", color: EMBER}
+    right: {label: "Rent", value: "{{rent|money}}", color: TIDE}
+    operator: "="
+    caption: "SO WHY DOES BUYING LOSE?"
+    title: "Your Mortgage Costs the Same as Rent. Buying Still Loses for 9 Years."
+  - id: C-chart
+    template: chart
+    x: "@race.x"
+    a: "@race.buyer"
+    b: "@race.renter"
+    x_max: 16
+    cross_x: "@be"
+    number: "{{be|y1}} YRS"
+    left_text: "RENT WINS"
+    right_text: "BUY WINS"
+    title: "Renting vs Buying at 7% Mortgage Rates (We Ran the Numbers)"

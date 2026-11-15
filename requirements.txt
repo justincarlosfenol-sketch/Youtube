@@ -1,0 +1,13 @@
+numpy>=2.0
+scipy>=1.13
+pandas>=2.2
+pillow>=10.0
+pyyaml>=6.0
+requests>=2.31
+soundfile>=0.12
+skia-python>=87.6
+kokoro-onnx>=0.4
+google-api-python-client>=2.130
+google-auth-oauthlib>=1.2
+fonttools>=4.50
+pytest>=8.0

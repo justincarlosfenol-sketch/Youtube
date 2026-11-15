@@ -1,0 +1,24 @@
+# Channel-wide settings used by metadata, upload and dashboard.
+# Fill the URLs once the site and accounts exist (see docs/06-launch-guide.md).
+channel_name: Breakeven
+handle: "@breakeven"            # update to the handle you actually secure
+site_url: ""                    # e.g. https://breakeven.money  (GitHub Pages works: https://<user>.github.io/<repo>/)
+newsletter_url: ""              # e.g. Beehiiv / Buttondown / Kit signup page
+models_store_url: ""            # e.g. Gumroad / Lemon Squeezy store for spreadsheet models
+default_category_id: "27"       # Education
+default_language: en
+publish_time_et: "10:00"
+publish_weekday: Tuesday
+disclaimer: >-
+  Breakeven is educational content, not individualized financial, tax or legal
+  advice. Models simplify reality; your numbers will differ. Always consider your
+  own situation and, where appropriate, consult a licensed professional.
+affiliate_disclosure: >-
+  Some links below may be affiliate links. If you use them we may earn a
+  commission at no extra cost to you. We only include products relevant to the
+  decision in this video, and it never changes the math.
+synthetic_voice_disclosure: >-
+  Narration in this video was generated with a synthetic (AI) voice from a
+  script written and fact-checked by the Breakeven team.
+# Affiliate links (only list programs you've been approved for). key -> {label, url}
+affiliates: {}

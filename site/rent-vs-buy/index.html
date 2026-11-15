@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rent vs Buy Calculator · Breakeven</title>
+<meta name="description" content="Find your rent-vs-buy breakeven year. A transparent, month-by-month model with every assumption adjustable. Same model as the Breakeven video.">
+<meta property="og:title" content="Rent vs Buy: find your breakeven year"><meta property="og:image" content="../assets/og.png">
+<link rel="icon" href="../assets/mark.svg"><link rel="stylesheet" href="../assets/site.css">
+<style>
+.layout{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:16px;margin-top:20px}
+@media (max-width:860px){.layout{grid-template-columns:minmax(0,1fr)}}
+.field{margin-bottom:14px}.field label{display:flex;justify-content:space-between;font-size:14px;color:var(--text-secondary);gap:8px}
+.field output{font:14px JBM,monospace;color:var(--text-primary)}.field input[type=range]{width:100%;accent-color:var(--accent)}
+.field input[type=number]{width:100%;font:inherit;padding:6px 10px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text-primary)}
+details summary{cursor:pointer;color:var(--text-secondary);font-size:14px;margin:6px 0 12px}
+.result{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:12px}
+.big{font:900 40px InterDisplay,Inter,sans-serif;letter-spacing:-.02em;font-variant-numeric:tabular-nums}.small{font-size:13px;color:var(--text-secondary)}
+.legend{display:flex;gap:16px;font-size:13px;color:var(--text-secondary);margin:4px 0 6px}.legend i{display:inline-block;width:14px;height:3px;border-radius:2px;margin-right:6px;vertical-align:4px}
+svg{width:100%;height:auto;display:block;overflow:visible}svg text{fill:var(--muted);font:11px JBM,monospace}
+.tip{position:fixed;pointer-events:none;background:var(--text-primary);color:var(--bg);padding:8px 10px;border-radius:8px;font-size:12px;line-height:1.5;display:none;z-index:9}
+.cost td{padding:4px 0;font-variant-numeric:tabular-nums}.cost td:last-child{text-align:right;font-family:JBM,monospace}
+.switch{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--text-secondary)}
+</style></head><body><div class="wrap">
+<nav><img src="../assets/mark.svg" alt=""><b>breakeven</b></nav>
+<div class="kicker">Calculator · model v1 · Nov 2026 defaults</div>
+<h1>Rent vs buy: find your breakeven year</h1>
+<p class="lede">Two households, the same budget. The buyer pays the down payment and closing costs; the renter invests that cash. Every month, whoever pays less for housing invests the difference. Net worth is what each would walk away with if they sold that month, after selling costs and capital-gains tax.</p>
+
+<div class="layout">
+<form class="card" id="f" onsubmit="return false">
+  <div class="field"><label for="home_price">Home price <output></output></label><input type="number" id="home_price" step="1000" min="50000"></div>
+  <div class="field"><label for="rent_monthly">Comparable monthly rent <output></output></label><input type="number" id="rent_monthly" step="25" min="200"></div>
+  <div class="field"><label for="mortgage_rate">Mortgage rate <output></output></label><input type="range" id="mortgage_rate" min="0.02" max="0.10" step="0.0001"></div>
+  <div class="field"><label for="down_pct">Down payment <output></output></label><input type="range" id="down_pct" min="0.03" max="0.5" step="0.01"></div>
+  <div class="field"><label for="home_growth">Home appreciation / yr <output></output></label><input type="range" id="home_growth" min="0" max="0.08" step="0.0025"></div>
+  <div class="field"><label for="invest_return">Investment return / yr <output></output></label><input type="range" id="invest_return" min="0" max="0.12" step="0.0025"></div>
+  <div class="field switch"><input type="checkbox" id="renter_invests_diff"><label for="renter_invests_diff" style="display:inline">Renter invests the monthly difference</label></div>
+  <details><summary>More assumptions</summary>
+  <div class="field"><label for="rent_growth">Rent growth / yr <output></output></label><input type="range" id="rent_growth" min="0" max="0.08" step="0.0025"></div>
+  <div class="field"><label for="property_tax_pct">Property tax rate <output></output></label><input type="range" id="property_tax_pct" min="0" max="0.03" step="0.0005"></div>
+  <div class="field"><label for="insurance_annual">Home insurance / yr <output></output></label><input type="number" id="insurance_annual" step="50" min="0"></div>
+  <div class="field"><label for="maintenance_pct">Maintenance / yr <output></output></label><input type="range" id="maintenance_pct" min="0" max="0.04" step="0.0025"></div>
+  <div class="field"><label for="buy_closing_pct">Buyer closing costs <output></output></label><input type="range" id="buy_closing_pct" min="0" max="0.06" step="0.0025"></div>
+  <div class="field"><label for="sell_cost_pct">Selling costs <output></output></label><input type="range" id="sell_cost_pct" min="0" max="0.1" step="0.0025"></div>
+  <div class="field"><label for="cap_gains_tax">Capital-gains tax (renter) <output></output></label><input type="range" id="cap_gains_tax" min="0" max="0.3" step="0.01"></div>
+  </details>
+  <button type="button" id="reset" class="btn" style="border:0;cursor:pointer">Reset to national defaults</button>
+</form>
+
+<section>
+  <div class="result">
+    <div class="card"><div class="small">Buying breaks even after</div><div class="big" id="be">—</div></div>
+    <div class="card"><div class="small">Owning, month one (all-in)</div><div class="big" id="own">—</div><div class="small" id="ownsub"></div></div>
+    <div class="card"><div class="small">Price-to-rent ratio</div><div class="big" id="ptr">—</div><div class="small">price ÷ a year of rent</div></div>
+  </div>
+  <div class="card">
+    <h2>Net worth if sold, by year</h2>
+    <div class="legend"><span><i style="background:var(--buy)"></i>Buyer</span><span><i style="background:var(--rent)"></i>Renter</span><span id="betag"></span></div>
+    <div id="chart"></div>
+    <div class="small" style="margin-top:8px"><a href="#" id="tbl">View as table</a></div>
+  </div>
+  <div class="card" style="margin-top:12px"><h2>Month-one cost of owning</h2><table class="cost" id="cost" style="width:100%"></table></div>
+</section>
+</div>
+
+<div class="card" style="margin-top:16px"><h2>Read before you rely on this</h2>
+<p class="small">Educational model, not financial advice. It ignores the mortgage-interest deduction (which can shorten the breakeven, especially for single filers), PMI below 20% down, HOA fees, rent deposits, and moving costs, and assumes constant growth rates. Defaults: NAR median price (Oct 2026), Freddie Mac 30-yr rate (12 Nov 2026), Zillow single-family rent (Oct 2026), ATTOM property tax, Insurify insurance. Full sources are in the video description. <span id="nl"></span></p></div>
+<footer>© Breakeven · Same model as the video "Rent vs Buy at 7%: The Breakeven Year Nobody Shows You".</footer>
+</div><div class="tip" id="tip"></div>
+<script type="module">
+import {simulate, DEFAULTS} from '../assets/rentbuy.js';
+const $=s=>document.querySelector(s);
+const pct=v=>(v*100).toFixed(2).replace(/\.00$|0$/,'')+'%', usd=v=>'$'+Math.round(v).toLocaleString('en-US');
+const FIELDS=Object.keys(DEFAULTS).filter(k=>document.getElementById(k));
+function getState(){const q=new URLSearchParams(location.search);const a={...DEFAULTS};for(const k of FIELDS){if(q.has(k))a[k]=k==='renter_invests_diff'?q.get(k)!=='0':Number(q.get(k))}return a}
+function setForm(a){for(const k of FIELDS){const el=document.getElementById(k);if(el.type==='checkbox')el.checked=a[k];else el.value=a[k]}}
+function read(){const a={...DEFAULTS};for(const k of FIELDS){const el=document.getElementById(k);a[k]=el.type==='checkbox'?el.checked:Number(el.value)}return a}
+function labels(a){for(const k of FIELDS){const el=document.getElementById(k);const o=el.parentElement.querySelector('output');if(!o)continue;
+ o.textContent=['home_price','rent_monthly','insurance_annual'].includes(k)?usd(a[k]):pct(a[k])}}
+const tip=$('#tip');
+function chart(res){const W=640,H=300,L=58,R=12,T=14,B=30,n=res.buyer.length,yrs=n/12;
+ const pts=[...Array(yrs+1).keys()];const b=pts.map(y=>y===0?null:res.buyer[y*12-1]),r=pts.map(y=>y===0?null:res.renter[y*12-1]);
+ const vals=[...b,...r].filter(v=>v!=null),max=Math.max(...vals),min=Math.min(0,...vals);
+ const step=(()=>{const raw=(max-min)/5,p=Math.pow(10,Math.floor(Math.log10(raw)));return [1,2,2.5,5,10].map(k=>k*p).find(k=>k>=raw)})();
+ const top=Math.ceil(max/step)*step,bot=Math.floor(min/step)*step;
+ const X=y=>L+(W-L-R)*y/yrs,Y=v=>T+(H-T-B)*(1-(v-bot)/(top-bot));
+ let g='';for(let v=bot;v<=top+1;v+=step)g+=`<line x1="${L}" x2="${W-R}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--grid)"/><text x="${L-8}" y="${Y(v)+4}" text-anchor="end">${v>=1e6?'$'+(v/1e6).toFixed(1)+'M':'$'+Math.round(v/1000)+'K'}</text>`;
+ for(let y=0;y<=yrs;y+=5)g+=`<text x="${X(y)}" y="${H-8}" text-anchor="middle">${y}</text>`;
+ const path=arr=>arr.map((v,i)=>v==null?'':`${i===1?'M':'L'}${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join('');
+ let be='';if(res.breakevenYears!=null){const bx=X(res.breakevenYears),by=Y(res.buyer[Math.round(res.breakevenYears*12)-1]);
+  be=`<line x1="${bx}" x2="${bx}" y1="${T}" y2="${H-B}" stroke="var(--gold)" stroke-dasharray="4 4"/><circle cx="${bx}" cy="${by}" r="7" fill="var(--surface-1)" stroke="var(--gold)" stroke-width="3"/>`}
+ $('#chart').innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Buyer versus renter net worth over ${yrs} years">${g}${be}
+ <path d="${path(r)}" fill="none" stroke="var(--rent)" stroke-width="2.5"/><path d="${path(b)}" fill="none" stroke="var(--buy)" stroke-width="2.5"/>
+ <text x="${W-R}" y="${Y(b[yrs])-8}" text-anchor="end" style="fill:var(--text-primary);font-weight:600">Buyer</text><text x="${W-R}" y="${Y(r[yrs])+16}" text-anchor="end" style="fill:var(--text-primary);font-weight:600">Renter</text>
+ <line id="xh" y1="${T}" y2="${H-B}" stroke="var(--muted)" stroke-dasharray="3 3" visibility="hidden"/><rect id="hit" x="${L}" y="${T}" width="${W-L-R}" height="${H-T-B}" fill="transparent"/></svg>`;
+ const svg=$('#chart svg');$('#hit').onmousemove=e=>{const bb=svg.getBoundingClientRect(),px=(e.clientX-bb.left)*W/bb.width;const y=Math.max(1,Math.min(yrs,Math.round((px-L)/(W-L-R)*yrs)));
+  const xh=$('#xh');xh.setAttribute('x1',X(y));xh.setAttribute('x2',X(y));xh.setAttribute('visibility','visible');
+  tip.innerHTML=`<b>Year ${y}</b><br>Buyer ${usd(b[y])}<br>Renter ${usd(r[y])}<br>${b[y]>=r[y]?'Buying':'Renting'} ahead by ${usd(Math.abs(b[y]-r[y]))}`;tip.style.display='block';
+  tip.style.left=Math.min(e.clientX+14,innerWidth-200)+'px';tip.style.top=(e.clientY+14)+'px'};$('#hit').onmouseleave=()=>{tip.style.display='none';$('#xh').setAttribute('visibility','hidden')};
+ $('#tbl').onclick=ev=>{ev.preventDefault();const w=window.open('','_blank');if(!w)return;w.document.write('<title>Net worth by year</title><table border=1 cellpadding=6 style="border-collapse:collapse;font:13px sans-serif"><tr><th>Year</th><th>Buyer</th><th>Renter</th></tr>'+pts.slice(1).map(y=>`<tr><td>${y}</td><td>${usd(b[y])}</td><td>${usd(r[y])}</td></tr>`).join('')+'</table>')}}
+function update(push=true){const a=read();labels(a);const res=simulate(a);
+ $('#be').textContent=res.breakevenYears==null?'30+ yrs':res.breakevenYears.toFixed(1)+' yrs';
+ $('#betag').textContent=res.breakevenYears==null?'Buying does not catch up within 30 years':'Gold line = breakeven';
+ $('#own').textContent=usd(res.first.total);$('#ownsub').textContent=`vs ${usd(a.rent_monthly)} rent (${res.first.total>=a.rent_monthly?'+':''}${usd(res.first.total-a.rent_monthly)})`;
+ $('#ptr').textContent=(a.home_price/(a.rent_monthly*12)).toFixed(1);
+ const f=res.first;$('#cost').innerHTML=[['Interest',f.interest],['Principal (your equity)',f.principal],['Property tax',f.tax],['Insurance',f.insurance],['Maintenance',f.maintenance],['Total',f.total]].map(([k,v])=>`<tr><td>${k}</td><td>${usd(v)}</td></tr>`).join('');
+ chart(res);if(push){const q=new URLSearchParams();for(const k of FIELDS)if(a[k]!==DEFAULTS[k])q.set(k,typeof a[k]==='boolean'?(a[k]?1:0):a[k]);history.replaceState(null,'',q.toString()?'?'+q:location.pathname)}}
+setForm(getState());update(false);$('#f').addEventListener('input',()=>update());$('#reset').onclick=()=>{setForm(DEFAULTS);update()};
+</script></body></html>

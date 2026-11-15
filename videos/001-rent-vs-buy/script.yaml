@@ -1,0 +1,339 @@
+slug: 001-rent-vs-buy
+working_title: "Rent vs Buy at 7%: The Breakeven Year Nobody Shows You"
+music_seed: 11
+# Narration numbers are bound from data.json ({{key|format}}), never typed by hand.
+
+shots:
+  # ------------------------------------------------------------ COLD OPEN
+  - id: s01
+    scene: bignumber
+    music: 0.45
+    params:
+      kicker: "Median US home · 20% down · {{rate_pct|pct}} mortgage"
+      items:
+        - {count: "@pi", label: "Monthly mortgage payment", sub: "principal + interest", color: EMBER, cue: pay}
+        - {count: "@rent", label: "Typical single-family rent", sub: "Zillow, Oct 2026", color: TIDE, cue: rent}
+      equals_cue: same
+      source: "Freddie Mac PMMS 12 Nov 2026 · NAR Oct 2026 · Zillow ZORI Oct 2026"
+    lines:
+      - {text: "Right now, the monthly mortgage payment on a median-priced American home is {{pi|money}}.", cue: pay, sources: [S1, S2, M1]}
+      - {text: "And the typical rent on a single-family house? {{rent|money}}.", cue: rent, sources: [S3]}
+      - {text: "The same number. To the dollar.", cue: same, sfx: pop}
+      - {text: "So buying costs the same as renting, except you build equity. Easy decision, right?"}
+
+  - id: s02
+    scene: statement
+    params:
+      text: "Not even close. Buy today, and the renter next door stays *richer than you* for over nine years."
+      size: 82
+    lines:
+      - {text: "Not even close. We built a model of both choices with this month's real data, and under typical assumptions, the renter stays richer than the buyer for over nine years.", sources: [M1]}
+      - {text: "But change one habit, and that number collapses to about two.", sources: [M1], sfx: thud}
+
+  - id: s03
+    scene: statement
+    params:
+      text: "By the end, you'll know the *three numbers* that decide your own breakeven year."
+      size: 80
+    lines:
+      - {text: "By the end of this video, you'll know the three numbers that decide your own breakeven year, and how to run them yourself."}
+
+  # ------------------------------------------------------------ CH1 ICEBERG
+  - id: c01
+    scene: chapter
+    chapter_label: "01 · The iceberg"
+    duration: 2.6
+    params: {number: "01", title: "The iceberg", kicker: "What a mortgage payment hides"}
+
+  - id: s04
+    scene: stack
+    params:
+      left: {label: "Rent", value: "@rent", color: TIDE, cue: L0}
+      right_label: "Owning · month one"
+      layers:
+        - {label: "Interest", value: "@m1.interest", color: EMBER, cue: mortgage}
+        - {label: "Principal", value: "@m1.principal", color: EMBER, cue: mortgage}
+        - {label: "Property tax", value: "@m1.tax", color: GOLD, cue: tax}
+        - {label: "Insurance", value: "@m1.insurance", color: GOLD, cue: ins}
+        - {label: "Maintenance", value: "@m1.maintenance", color: GOLD, cue: maint}
+      waterline_cue: tip
+      waterline_label: "WHAT PEOPLE COMPARE"
+      delta_cue: total
+      max: 3600
+      source: "ATTOM 2025 · Insurify 2026 · Bankrate · Breakeven model"
+    lines:
+      - {text: "When people compare renting to buying, they put the rent next to the mortgage payment. That's the tip of the iceberg.", cue: tip}
+      - {text: "Here's the full cost of owning that median home, in month one."}
+      - {text: "The mortgage: {{pi|money}}.", cue: mortgage, sfx: tick, sources: [S1, S2]}
+      - {text: "Property tax, at the national average effective rate of about 0.9%: another {{m1.tax|money}}.", cue: tax, sfx: tick, sources: [S4]}
+      - {text: "Homeowners insurance, now averaging around $3,000 a year: {{m1.insurance|money}}.", cue: ins, sfx: tick, sources: [S5]}
+      - {text: "And maintenance: roofs, water heaters, the things nobody budgets for. Even at a conservative 1% of the home's value per year, that's {{m1.maintenance|money}} a month.", cue: maint, sfx: tick, sources: [S8]}
+      - {text: "Total: {{owner_total|money}}. That's {{delta|money}} a month more than renting a similar house.", cue: total, sfx: pop, sources: [M1]}
+
+  - id: s05
+    scene: splitbar
+    params:
+      title: "Where your first mortgage payment goes"
+      total_label: "PAYMENT #1 · {{pi|money}}"
+      parts:
+        - {label: "Interest (to the bank)", value: "@m1.interest", color: EMBER, cue: interest}
+        - {label: "Principal (your equity)", value: "@m1.principal", color: MINT, cue: principal}
+      source: "Breakeven model · 30-yr fixed at 7.11% on $333,360"
+    lines:
+      - {text: "And of that first mortgage payment, how much actually becomes equity?"}
+      - {text: "Just {{m1.principal|money}}.", cue: principal, sources: [M1]}
+      - {text: "The other {{m1.interest|money}} is interest. In month one, {{interest_cents}} cents of every mortgage dollar goes to the bank.", cue: interest, sources: [M1]}
+
+  - id: s06
+    scene: statement
+    params:
+      text: "Owning has *unrecoverable costs* too. They're just harder to see than rent."
+    lines:
+      - {text: "That's the key idea. Rent is money you'll never see again. But so are interest, property tax, insurance and maintenance."}
+      - {text: "Owning doesn't stop your money from disappearing. It just makes it disappear in more places."}
+
+  # ------------------------------------------------------------ CH2 FAIR FIGHT
+  - id: c02
+    scene: chapter
+    chapter_label: "02 · The fair fight"
+    duration: 2.6
+    params: {number: "02", title: "The fair fight", kicker: "Same money. Two strategies."}
+
+  - id: s07
+    scene: bignumber
+    params:
+      kicker: "Day one · same cash, two strategies"
+      items:
+        - {count: "@upfront", label: "Buyer: down payment + closing", sub: "20% down + ~2% closing costs", color: EMBER, cue: buyer}
+        - {count: "@upfront", label: "Renter: invests the same cash", sub: "diversified portfolio", color: TIDE, cue: renter}
+      verdict: {text: "Every month, whoever pays *less* for housing invests the difference.", cue: rule, color: GOLD}
+      source: "NAR Oct 2026 · ClosingCorp via The Mortgage Reports"
+    lines:
+      - {text: "To make this a fair fight, we gave two households exactly the same money."}
+      - {text: "The buyer puts 20% down, {{down|money}}, plus about $8,300 in closing costs.", cue: buyer, sources: [S2, S7]}
+      - {text: "The renter doesn't buy, so they invest that same {{upfront|money}} instead.", cue: renter, sources: [M1]}
+      - {text: "Then, every single month, whoever has the cheaper housing invests the difference.", cue: rule}
+      - {text: "Today that's the renter, by {{delta|money}} a month. But rent rises over time while the mortgage payment stays fixed, so eventually, it flips.", sources: [M1]}
+
+  - id: s08
+    scene: assumptions
+    params:
+      title: "The assumptions"
+      cols: 3
+      cards:
+        - {label: "Home price", value: "{{price|money}}", source: "NAR · median, Oct 2026", color: EMBER}
+        - {label: "Mortgage rate", value: "{{rate_pct|pct}}", source: "Freddie Mac · 12 Nov 2026", color: EMBER}
+        - {label: "Rent", value: "{{rent|money}}", source: "Zillow ZORI single-family", color: TIDE}
+        - {label: "Rent growth", value: "3% / yr", source: "Zillow · +3.2% YoY", color: TIDE}
+        - {label: "Home appreciation", value: "4% / yr", source: "Case-Shiller · ~4.3%/yr since 1987", color: EMBER, cue: growth}
+        - {label: "Portfolio return", value: "7% / yr", source: "vs ~10%/yr stocks since 1928", color: TIDE, cue: ret}
+        - {label: "Selling costs", value: "6%", source: "Agent surveys 5.5–5.8% + fees", color: EMBER, cue: sell}
+        - {label: "Maintenance", value: "1% / yr", source: "Low end of the 1–4% rule", color: EMBER}
+        - {label: "Capital gains tax", value: "15%", source: "On the renter's gains at sale", color: TIDE, cue: cgt}
+    lines:
+      - {text: "Here are the assumptions, all from this year's data.", sources: [S1, S2, S3]}
+      - {text: "Home values grow 4% a year, close to their long-run national average.", cue: growth, sources: [S9]}
+      - {text: "The renter's portfolio earns 7%, deliberately below the stock market's roughly 10% historical average.", cue: ret, sources: [S10]}
+      - {text: "When the buyer sells, they pay about 6% in commissions and fees.", cue: sell, sources: [S6]}
+      - {text: "And when the renter cashes out, they pay capital gains tax.", cue: cgt}
+      - {text: "We left out the mortgage interest deduction. It helps some buyers, especially single filers, and would pull their breakeven earlier. That's one more reason to run your own numbers."}
+
+  # ------------------------------------------------------------ CH3 RACE
+  - id: c03
+    scene: chapter
+    chapter_label: "03 · The race"
+    duration: 2.6
+    music: 0.7
+    params: {number: "03", title: "The race", kicker: "Net worth, month by month"}
+
+  - id: s09
+    scene: race
+    music: 0.85
+    params:
+      x: "@race.x"
+      x_max: 12
+      y_max: 400000
+      y_label: "Net worth if sold"
+      series:
+        - {name: "Buyer", color: EMBER, y: "@race.buyer"}
+        - {name: "Renter", color: TIDE, y: "@race.renter"}
+      draw_start_cue: day1
+      breakeven: {x: "@be", label: "Breakeven · year {{be|y1}}", cue: cross, cue_offset: 0.9}
+      annotations:
+        - {x: 0.0, series: 0, text: "Day one: buyer starts\n{{day0.buyer|money}} vs {{day0.renter|money}}", cue: day1, dx: 150, dy: 70}
+      source: "Breakeven model · inputs: NAR, Freddie Mac, Zillow, ATTOM, Insurify"
+    lines:
+      - {text: "Here's the net worth of both households, meaning what each would walk away with if they sold everything that month."}
+      - {text: "On day one, the buyer is already behind. Closing costs are gone, and selling would cost another 6%. The buyer starts with about {{day0.buyer|money_k}}. The renter, {{day0.renter|money}}.", cue: day1, sources: [M1]}
+      - {text: "After year one, the renter is still ahead by about {{y1.gap|money_k}}.", sources: [M1]}
+      - {text: "Then the buyer starts closing the gap. Every year the home appreciates, the loan shrinks, and rent creeps up while the mortgage payment stays locked."}
+      - {text: "And at {{be|y1}} years, the lines cross.", cue: cross, sources: [M1]}
+
+  - id: s10
+    scene: race
+    music: 0.7
+    params:
+      x: "@race.x"
+      y_label: "Net worth if sold"
+      series:
+        - {name: "Buyer", color: EMBER, y: "@race.buyer"}
+        - {name: "Renter", color: TIDE, y: "@race.renter"}
+      draw_start_cue: 0.3
+      draw_end_cue: L0_end
+      breakeven: {x: "@be", label: "Breakeven · year {{be|y1}}", sfx: false}
+      source: "Breakeven model"
+    lines:
+      - {text: "That's the breakeven. Sell before it, and renting would have left you richer. Stay past it, and buying pulls ahead, finishing thirty years about {{y30.gap|money_k}} richer: {{y30.buyer|money_m}} versus {{y30.renter|money_m}}.", sources: [M1]}
+      - {text: "Zillow's own national estimate, using different assumptions, is 7.8 years. Same neighborhood.", sources: [S3]}
+      - {text: "So the rule isn't that buying always wins, or that renting is throwing money away. Buying is a bet that you'll stay long enough."}
+
+  # ------------------------------------------------------------ CH4 LEVERS
+  - id: c04
+    scene: chapter
+    chapter_label: "04 · The levers"
+    duration: 2.6
+    music: 0.55
+    params: {number: "04", title: "The levers", kicker: "Three numbers flip the answer"}
+
+  - id: s11
+    scene: lever
+    params:
+      label: "Lever 1 · Home appreciation per year"
+      x: "@lever_home.x"
+      stops: "@lever_home.stops"
+      never_label: "Not in 30 yrs"
+      sequence: [{stop: 1, cue: L1}, {stop: 2, cue: five}, {stop: 0, cue: three}]
+      source: "Breakeven model · all other inputs unchanged"
+    lines:
+      - {text: "Now the honest part. {{be|y1}} years is the answer for one set of assumptions. Change any of three numbers, and it moves a lot.", sources: [M1]}
+      - {text: "Lever one: how fast the home appreciates. At 4% a year, breakeven is {{be|y1}} years.", sources: [M1]}
+      - {text: "At 5%, it drops to {{lever_home.stops.2.be|y1}}.", cue: five, sources: [M1]}
+      - {text: "But at 3%, buying doesn't catch up within thirty years at all.", cue: three, sources: [M1]}
+
+  - id: s12
+    scene: lever
+    params:
+      label: "Lever 2 · Your mortgage rate"
+      x: "@lever_rate.x"
+      stops: "@lever_rate.stops"
+      sequence: [{stop: 2, cue: L0}, {stop: 1, cue: six}, {stop: 0, cue: five}]
+      source: "Breakeven model · all other inputs unchanged"
+    lines:
+      - {text: "Lever two: your mortgage rate. At today's {{rate_pct|pct}}, that's {{be|y1}} years.", sources: [S1, M1]}
+      - {text: "At 6%, {{lever_rate.stops.1.be|y1}}.", cue: six, sources: [M1]}
+      - {text: "At 5%, just over three.", cue: five, sources: [M1]}
+      - {text: "That's why a one-point drop in rates matters far more than it sounds."}
+
+  - id: s13
+    scene: lever
+    params:
+      label: "Lever 3 · Price-to-rent ratio"
+      x: "@lever_ptr.x"
+      stops: "@lever_ptr.stops"
+      never_label: "Not in 30 yrs"
+      sequence: [{stop: 1, cue: L0}, {stop: 0, cue: twelve}, {stop: 2, cue: eighteen}]
+      source: "Breakeven model · price ÷ (monthly rent × 12)"
+    lines:
+      - {text: "Lever three is the big one: the price-to-rent ratio. Take a home's price, and divide it by a year of rent on a similar place. Nationally, right now, that's about {{ptr|y1}}.", sources: [S2, S3]}
+      - {text: "Where it's 12, meaning homes are cheap relative to rent, buying breaks even in under three years.", cue: twelve, sources: [M1]}
+      - {text: "Where it's 18 or higher, at today's rates, it doesn't break even within thirty years.", cue: eighteen, sources: [M1]}
+
+  - id: s14
+    scene: heatmap
+    params:
+      title: "The breakeven map · years until buying wins"
+      values: "@heat.values"
+      ys_labels: "@heat.rows"
+      xs_labels: "@heat.cols"
+      y_title: "Mortgage rate"
+      x_title: "Price-to-rent ratio"
+      reveal_cue: L0
+      highlight: {row: 4, col: 3, cue: today, label: "TODAY"}
+      source: "Breakeven model · '30+' = buying doesn't win within 30 years"
+    lines:
+      - {text: "Put two of those levers together and you get the breakeven map. Mortgage rates run down the side, price-to-rent across the top.", sources: [M1]}
+      - {text: "Today's national numbers land right here: {{be|y1}} years.", cue: today, sources: [M1]}
+      - {text: "Lower rates or a lower price-to-rent, and buying wins fast. Move a column or two to the right, into pricier markets, and at today's rates it stops winning at all.", sources: [M1]}
+
+  # ------------------------------------------------------------ CH5 TWIST
+  - id: c05
+    scene: chapter
+    chapter_label: "05 · The habit"
+    duration: 2.6
+    music: 0.5
+    params: {number: "05", title: "The habit", kicker: "The assumption that changes everything"}
+
+  - id: s15
+    scene: statement
+    params:
+      text: "The renter only wins if they *invest the difference*. Every month. For decades."
+    lines:
+      - {text: "Now, the twist. Our renter is extremely disciplined. They invest every dollar they save, every month, for thirty years."}
+      - {text: "What if they don't? What if that {{delta|money}} a month just gets spent?", sources: [M1]}
+
+  - id: s16
+    scene: bignumber
+    params:
+      kicker: "Years until buying wins"
+      items:
+        - {value: "{{be|y1}} yrs", label: "Renter invests the difference", color: TIDE, cue: L0}
+        - {value: "{{be_spender|y1}} yrs", label: "Renter spends the difference", color: EMBER, cue: spend}
+      operator: "→"
+      equals_cue: spend
+      verdict: {text: "A mortgage is a *forced savings plan*.", cue: forced}
+      source: "Breakeven model"
+    lines:
+      - {text: "Then buying breaks even in just {{be_spender|y1}} years, and never looks back.", cue: spend, sfx: thud, sources: [M1]}
+      - {text: "This is the real reason so many homeowners end up wealthier than renters. It's not that a house is a magical investment."}
+      - {text: "It's that a mortgage is a forced savings plan, and most of us are bad at forcing ourselves.", cue: forced}
+
+  - id: s16b
+    scene: checklist
+    params:
+      title: "What no spreadsheet can price"
+      items:
+        - {text: "*Renting buys flexibility:* move for a better job in weeks, and a falling local market is your landlord's problem.", cue: L1, mark: dot}
+        - {text: "*Owning buys control:* nobody else decides when you leave, what next year's rent is, or what color the walls are.", cue: L2, mark: dot}
+        - {text: "*Owning concentrates risk:* nearly all of the buyer's net worth is one house, one town, one roof.", cue: L3, mark: dot}
+    lines:
+      - {text: "One more honest caveat. Some of what matters most doesn't fit in a spreadsheet."}
+      - {text: "Renting buys flexibility. You can move for a better job in weeks, not months, and if local prices fall, that's your landlord's problem."}
+      - {text: "Owning buys control. Nobody else decides when you leave, what next year's rent will be, or what color the walls are."}
+      - {text: "And owning concentrates risk. In our model, nearly all of the buyer's net worth is one house, in one town, under one roof."}
+      - {text: "Put your own price on those, and weigh them alongside the math."}
+
+  # ------------------------------------------------------------ CH6 YOUR NUMBERS
+  - id: c06
+    scene: chapter
+    chapter_label: "06 · Your numbers"
+    duration: 2.6
+    music: 0.6
+    params: {number: "06", title: "Your numbers", kicker: "Four questions before you sign anything"}
+
+  - id: s17
+    scene: checklist
+    params:
+      title: "Your breakeven checklist"
+      items:
+        - {text: "How long will you stay? At today's national numbers, *under about nine years*, renting tends to win.", cue: L0}
+        - {text: "Find your price-to-rent ratio. At today's rates, around *14 or lower* breaks even in about five years. *18 or higher* doesn't break even in thirty.", cue: L1}
+        - {text: "Price in the full cost. Tax, insurance and maintenance added *{{delta_pct_of_pi|y1}}%* on top of the mortgage payment here.", cue: L2}
+        - {text: "Be honest about the habit. If you won't invest the difference, *buying wins much sooner*.", cue: L3}
+    lines:
+      - {text: "So, before you sign anything: how long will you really stay? At today's national numbers, under about nine years, renting tends to come out ahead.", sources: [M1]}
+      - {text: "Find your price-to-rent ratio. At today's rates, around 14 or lower breaks even in roughly five years. 18 or higher, not within thirty.", sources: [M1]}
+      - {text: "Price in the full cost. Here, tax, insurance and maintenance added {{delta_pct_of_pi|y1}}% on top of the mortgage payment.", sources: [M1]}
+      - {text: "And be honest about the habit. If the difference won't get invested, buying wins much sooner."}
+
+  - id: s18
+    scene: endscreen
+    min_duration: 20
+    music: 0.7
+    params:
+      headline: "Find your own breakeven"
+      url: "Free calculator: link in description"
+      next_label: "Next model: 3.5% down now, or wait for 20%?"
+    lines:
+      - {text: "The full model, with every assumption adjustable, is free. The link is in the description. Plug in your price, your rent and your rate, and find your own breakeven."}
+      - {text: "And tell us your price-to-rent ratio in the comments. We'll model the most common ones in a follow-up."}
+      - {text: "This is Breakeven. Every week, we take one expensive decision and run the numbers. Next: should you buy now with 3.5% down, or wait until you've saved 20%? See you there."}

@@ -1,0 +1,34 @@
+calculator_path: rent-vs-buy
+hook: |
+  Right now the mortgage payment on a median-priced US home ({{pi|money}}/mo at {{rate_pct|pct}}) is the same as the typical single-family rent ({{rent|money}}). So why does the renter stay richer for {{be|y1}} years?
+
+  We built a month-by-month model of renting vs buying with November 2026 data — same budget for both households, every assumption sourced — and found the breakeven year. Then we stress-tested the three numbers that decide it for you: home appreciation, your mortgage rate, and your local price-to-rent ratio. Plus the one habit that drops the breakeven to {{be_spender|y1}} years.
+assumptions:
+  - "Home price {{price|money}} (NAR median, Oct 2026); 20% down; 30-yr fixed at {{rate_pct|pct}} (Freddie Mac, 12 Nov 2026)"
+  - "Rent {{rent|money}}/mo (Zillow single-family ZORI, Oct 2026), growing 3%/yr"
+  - "Home appreciation 4%/yr; renter's portfolio 7%/yr; 15% capital-gains tax on the renter's gains"
+  - "Property tax 0.9%, insurance $3,012/yr (+3%/yr), maintenance 1%/yr, buyer closing costs 2%, selling costs 6%"
+  - "Each month the household with cheaper housing invests the difference. Mortgage-interest deduction not modelled (it can shorten the breakeven, especially for single filers)."
+  - "Net worth = what each household would walk away with if they sold/liquidated that month."
+tags:
+  - rent vs buy
+  - rent vs buy 2026
+  - should i buy a house
+  - renting vs buying a home
+  - rent or buy calculator
+  - mortgage rates 2026
+  - buying a house at 7% interest
+  - price to rent ratio
+  - is renting throwing money away
+  - home buying breakeven
+  - personal finance
+  - first time home buyer
+hashtags: ["#RentVsBuy", "#PersonalFinance", "#Mortgage"]
+pinned_comment: |
+  📌 Every assumption in this model is listed (with sources) in the description. Want to see a specific scenario — your city, rate, or rent? Drop your price-to-rent ratio below (home price ÷ a year of rent) and we'll model the most common ones in the follow-up.
+affiliates: []      # e.g. [hysa, mortgage_marketplace] once approved — keys from channel.yaml
+paid_promotion: false
+shorts:
+  - {id: short-1, title: "Your mortgage = rent. Buying still loses for 9 years. #shorts", from_shots: [s01, s02]}
+  - {id: short-2, title: "88 cents of your first mortgage dollar goes to the bank #shorts", from_shots: [s05]}
+  - {id: short-3, title: "The habit that makes buying win in 2.4 years #shorts", from_shots: [s15, s16]}

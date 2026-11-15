@@ -1,0 +1,16 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Inter Display,64,&H00E4EEF3,&H00E4EEF3,&H00171412,&H00171412,1,0,0,0,100,100,0,0,1,0,0,8,70,70,1210,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.35,0:00:02.81,Cap,,0,0,0,,And of that first mortgage payment, how much
+Dialogue: 0,0:00:02.81,0:00:04.16,Cap,,0,0,0,,actually becomes equity?
+Dialogue: 0,0:00:04.48,0:00:06.54,Cap,,0,0,0,,Just $267.
+Dialogue: 0,0:00:06.86,0:00:11.62,Cap,,0,0,0,,The other $1,975 is interest. In month one, 88 cents
+Dialogue: 0,0:00:11.62,0:00:15.47,Cap,,0,0,0,,of every mortgage dollar goes to the bank.

@@ -1,0 +1,21 @@
+@font-face{font-family:Inter;src:url(fonts/Inter-Regular.otf);font-display:swap}
+@font-face{font-family:Inter;font-weight:600;src:url(fonts/Inter-SemiBold.otf);font-display:swap}
+@font-face{font-family:InterDisplay;font-weight:700;src:url(fonts/InterDisplay-Bold.otf);font-display:swap}
+@font-face{font-family:InterDisplay;font-weight:900;src:url(fonts/InterDisplay-Black.otf);font-display:swap}
+@font-face{font-family:Fraunces;font-weight:600;src:url(fonts/Fraunces-600-normal.ttf);font-display:swap}
+@font-face{font-family:JBM;src:url(fonts/JetBrainsMono-Regular.ttf);font-display:swap}
+:root{color-scheme:light;--bg:#f3eee4;--surface-1:#fcfaf6;--border:#e2ddd2;--text-primary:#121417;--text-secondary:#4d4f55;--muted:#6f7480;--grid:#e8e3d8;
+--buy:#D9482B;--rent:#0F8FAA;--gold:#b98600;--accent:#D9482B}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#121417;--surface-1:#1a1d22;--border:#2a3038;--text-primary:#f3eee4;
+--text-secondary:#c3c2b7;--muted:#8c93a0;--grid:#262a30;--buy:#E8603F;--rent:#2A9DB3;--gold:#F5B700;--accent:#FF5C39}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#121417;--surface-1:#1a1d22;--border:#2a3038;--text-primary:#f3eee4;--text-secondary:#c3c2b7;--muted:#8c93a0;
+--grid:#262a30;--buy:#E8603F;--rent:#2A9DB3;--gold:#F5B700;--accent:#FF5C39}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text-primary);font:16px/1.55 Inter,system-ui,sans-serif}
+a{color:var(--accent)}.wrap{max-width:1100px;margin:0 auto;padding:20px 16px 64px}
+nav{display:flex;align-items:center;gap:10px;margin-bottom:28px}nav img{width:36px;height:36px}nav b{font:700 22px InterDisplay,Inter,sans-serif;letter-spacing:-.02em}
+h1{font:600 clamp(30px,5vw,48px)/1.1 Fraunces,Georgia,serif;margin:0 0 10px}h2{font:600 22px Fraunces,Georgia,serif;margin:0 0 10px}
+.lede{color:var(--text-secondary);font-size:18px;max-width:720px}.mono{font-family:JBM,ui-monospace,monospace}
+.card{background:var(--surface-1);border:1px solid var(--border);border-radius:16px;padding:18px;min-width:0}
+.kicker{font:12px JBM,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.btn{display:inline-block;background:var(--text-primary);color:var(--bg);padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:600}
+footer{margin-top:48px;color:var(--muted);font-size:13px}

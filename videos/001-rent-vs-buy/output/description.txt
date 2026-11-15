@@ -1,0 +1,41 @@
+Right now the mortgage payment on a median-priced US home ($2,243/mo at 7.11%) is the same as the typical single-family rent ($2,243). So why does the renter stay richer for 9.4 years?
+
+We built a month-by-month model of renting vs buying with November 2026 data — same budget for both households, every assumption sourced — and found the breakeven year. Then we stress-tested the three numbers that decide it for you: home appreciation, your mortgage rate, and your local price-to-rent ratio. Plus the one habit that drops the breakeven to 2.4 years.
+
+🧮 Free calculator (every assumption adjustable): [CALCULATOR LINK — set site_url in channel.yaml]
+
+CHAPTERS
+0:00 Intro
+0:43 The iceberg
+2:03 The fair fight
+3:16 The race
+4:27 The levers
+5:54 The habit
+7:00 Your numbers
+
+KEY ASSUMPTIONS
+• Home price $416,700 (NAR median, Oct 2026); 20% down; 30-yr fixed at 7.11% (Freddie Mac, 12 Nov 2026)
+• Rent $2,243/mo (Zillow single-family ZORI, Oct 2026), growing 3%/yr
+• Home appreciation 4%/yr; renter's portfolio 7%/yr; 15% capital-gains tax on the renter's gains
+• Property tax 0.9%, insurance $3,012/yr (+3%/yr), maintenance 1%/yr, buyer closing costs 2%, selling costs 6%
+• Each month the household with cheaper housing invests the difference. Mortgage-interest deduction not modelled (it can shorten the breakeven, especially for single filers).
+• Net worth = what each household would walk away with if they sold/liquidated that month.
+
+SOURCES
+[M1] All breakeven years, net-worth paths and sensitivities — Breakeven rent-vs-buy model (breakeven/models/rent_vs_buy.py), inputs above https://github.com/justincarlosfenol-sketch/Youtube/blob/main/breakeven/models/rent_vs_buy.py
+[S1] 30-year fixed mortgage rate averaged 7.11% (week of 12 Nov 2026) — Freddie Mac Primary Mortgage Market Survey, release of 12 Nov 2026 https://www.globenewswire.com/news-release/2026/11/12/3402013/0/en/mortgage-rates-decline-for-fourth-consecutive-week-to-7-11.html
+[S2] Median existing-home sales price $416,700 (October 2026) — National Association of Realtors, Existing-Home Sales, 12 Nov 2026 https://www.nar.realtor/newsroom/existing-home-sales-decreased-5-5-percent-october-nar-report
+[S3] Typical single-family rent $2,243/month, +3.2% YoY (Oct 2026); Zillow national rent-vs-buy break-even 7.8 years with 20% down — Zillow Observed Rent Index / Zillow rental market report, 12 Nov 2026 https://zillow.mediaroom.com/2026-11-12-A-house-doesnt-have-to-mean-a-mortgage-Renting-requires-14K-less-income-than-buying
+[S4] National effective property tax rate 0.90% on single-family homes (2025) — ATTOM 2025 Property Tax Analysis https://www.attomdata.com/news/market-trends/home-sales-prices/2025-annual-tax-report
+[S5] Average homeowners insurance about $3,012/year (mid-2026) — Insurify 2026 home insurance report (via Insurance Business) https://insurancebusinessmag.com/us/news/property/home-insurance-to-top-3000-as-us-affordability-crisis-deepens--insurify-569103.aspx
+[S6] Average total agent commission ~5.46%-5.84% in 2026 surveys; we assume 6% total selling costs incl. seller fees — FastExpert agent survey (Oct 2026); Clever Real Estate surveys (Feb & Aug 2026) https://fastexpert.com/blog/real-estate-agent-commissions-by-state/
+[S7] Buyer closing costs ~2% of price (ClosingCorp national average ~$6,900 on $350k) — ClosingCorp data as reported by The Mortgage Reports https://themortgagereports.com/35800/guide-to-mortgage-closing-costs-what-average-mortgage-costs-are-and-how-to-keep-yours-low
+[S8] Maintenance rule of thumb: 1% (routine) up to 4% of home value per year — Bankrate https://www.bankrate.com/homeownership/most-common-home-maintenance-costs
+[S9] S&P/Case-Shiller US National HPI: 63.96 (Jan 1987) -> 332.68 (Apr 2026) = ~4.3%/yr compounded (our calculation) — S&P Cotality Case-Shiller U.S. National Home Price Index (FRED: CSUSHPINSA) https://fred.stlouisfed.org/series/CSUSHPINSA
+[S10] S&P 500 total return ~10% per year (geometric), 1928-2025 — Aswath Damodaran, Historical Returns on Stocks, Bonds and Bills (NYU Stern) https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/histretSP.html
+
+Breakeven is educational content, not individualized financial, tax or legal advice. Models simplify reality; your numbers will differ. Always consider your own situation and, where appropriate, consult a licensed professional.
+
+Narration in this video was generated with a synthetic (AI) voice from a script written and fact-checked by the Breakeven team.
+
+#RentVsBuy #PersonalFinance #Mortgage

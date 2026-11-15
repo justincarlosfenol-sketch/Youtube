@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+videos/*/build/
+videos/*/output/*.mp4
+!videos/*/output/*-review.mp4
+models/
+.env
+secrets/
+client_secret*.json
+token*.json
+data/analytics.db
+*.part.mp4
+data/demo.db
+data/cache/
+videos/*/voice/*.wav
+videos/*/output/approval.json
+videos/*/output/upload.json

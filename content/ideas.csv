@@ -1,0 +1,53 @@
+id,working_title,series,core_question,search,browse,value,evergreen,data,effort,season,pin_week,refresh_cadence,primary_monetization
+1,Rent vs Buy at 7%: The Breakeven Year Nobody Shows You,Breakeven,After how many years does buying beat renting at today's rates?,5,5,5,5,5,3,,1,annual,mortgage/HYSA affiliate; spreadsheet
+2,When Should You Claim Social Security? The Breakeven Age,Breakeven,At what age does delaying Social Security pay off?,5,4,4,5,5,2,,9,annual,retirement planning sponsor
+3,Pay Off Your Mortgage Early or Invest? We Ran Both for 30 Years,Breakeven,Is an extra mortgage payment better than investing it?,5,5,5,5,5,2,,3,annual,brokerage affiliate
+4,"Lease vs Buy New vs Buy Used: 10 Years of a Car, Simulated",Breakeven,Which car strategy costs least over 10 years?,5,4,4,5,4,3,,,annual,auto insurance/loan affiliate
+5,Roth vs Traditional 401(k): The Tax Rate That Decides It,Breakeven,Which retirement account leaves more after tax?,5,4,5,5,5,3,tax,6,annual,brokerage affiliate
+6,15-Year vs 30-Year Mortgage: Which Leaves You Richer?,Breakeven,Is the 15-year mortgage worth the higher payment?,4,3,5,5,5,2,,,annual,mortgage affiliate
+7,Should You Refinance? The Exact Rate Drop That Pays Off,Breakeven,How much must rates fall for a refinance to pay off?,5,3,5,4,5,2,rates,,on rate moves,mortgage marketplace affiliate
+8,Is Grad School Worth It? The ROI of 20 Degrees,Paycheck,Which graduate degrees pay back their cost and when?,4,5,4,5,3,4,,,annual,student loan refi affiliate
+9,Trade School vs College: The Lifetime Earnings Race,Paycheck,When does a degree overtake a trade in lifetime earnings?,4,5,3,5,3,3,,,annual,course sponsor
+10,The Real Cost of Owning a Car for 10 Years,Real Cost,"What does a car really cost per mile, all-in?",4,5,4,5,4,2,,,annual,auto insurance affiliate
+11,"The Real Cost of a Dog, From Puppy to Goodbye",Real Cost,What does a dog cost over its lifetime?,4,5,3,5,3,2,,,evergreen,pet insurance affiliate
+12,The Real Cost of Raising a Kid in 2026,Real Cost,What does a child cost from birth to 18 and how to plan?,4,5,4,5,3,3,,,annual,life insurance/529 affiliate
+13,What $500 a Month Became in Every 30-Year Period Since 1928,Run It Back,How much does start date matter for long-term investors?,4,5,4,5,4,3,newyear,4,annual,brokerage affiliate
+14,Lump Sum vs Dollar-Cost Averaging: 97 Years of Data,Run It Back,Is it better to invest a windfall at once or gradually?,4,4,4,5,4,2,,,evergreen,brokerage affiliate
+15,Investing at Every Market Peak: The World's Unluckiest Investor,Run It Back,How bad is terrible timing over a lifetime?,3,5,4,5,4,2,,,evergreen,brokerage affiliate
+16,The 4% Rule vs Every Retirement Since 1928,Run It Back,Does the 4% rule survive history's worst sequences?,5,4,5,5,4,3,,,evergreen,retirement planning sponsor
+17,Pay Off Student Loans or Invest? The Breakeven Interest Rate,Breakeven,At what loan rate should you prepay instead of invest?,5,4,4,5,5,2,,,annual,student loan refi affiliate
+18,The HSA Math: Why It Beats Your 401(k) for Retirement,Breakeven,How much more does an invested HSA leave you?,4,3,5,5,5,2,tax,8,annual,HSA provider affiliate
+19,Solar Panels: The Breakeven Year by State,Breakeven,When do rooftop panels pay for themselves?,5,4,5,4,3,4,,,annual,solar marketplace affiliate
+20,EV vs Gas: The Breakeven Mile in 2026,Breakeven,After how many miles does an EV become cheaper?,5,5,4,4,4,3,,,annual,auto/insurance affiliate
+21,"Timeshares, Simulated: Is One Ever Worth It?",Real Cost,What does a timeshare really cost vs booking hotels?,4,4,3,5,3,2,,,evergreen,travel card affiliate
+22,Who Actually Pays for Your Credit Card Rewards?,Money Behind,How are points funded and who subsidizes them?,3,5,5,5,3,3,,,evergreen,credit card affiliate
+23,How Buy Now Pay Later Actually Makes Money,Money Behind,What's the business model behind BNPL?,3,5,3,4,3,3,holiday,,evergreen,budgeting app affiliate
+24,Whole Life vs Term + Invest: The 40-Year Simulation,Breakeven,Does permanent life insurance ever beat term plus investing?,5,4,5,5,4,3,,,evergreen,term life marketplace affiliate
+25,"Index Funds vs Stock Picking: The Odds, Visualized",Run It Back,What share of active funds beat the index over 20 years?,4,4,4,5,4,3,,,annual,brokerage affiliate
+26,Moving to a Cheaper City: Your Remote-Work Breakeven,Paycheck,Does moving to a low-cost city leave you richer?,3,4,3,4,3,3,,,annual,moving/real estate affiliate
+27,The Longer Commute for More Money: When Is It Worth It?,Paycheck,How much raise justifies a longer commute?,3,4,3,5,4,2,,,evergreen,
+28,The Cost of Waiting 10 Years to Invest,Run It Back,How much does delaying investing cost by retirement?,4,5,4,5,4,1,newyear,10,evergreen,brokerage affiliate
+29,How Big Should Your Emergency Fund Be? We Simulated Job Loss,Breakeven,What emergency fund size survives realistic job loss?,4,3,5,5,4,3,newyear,,evergreen,HYSA affiliate
+30,High-Yield Savings vs T-Bills vs CDs When Yields Are 5%,Breakeven,Where should cash live right now after tax?,5,3,5,3,5,2,rates,7,quarterly,HYSA/treasury affiliate
+31,3.5% Down Now vs Waiting to Save 20%,Breakeven,Is it better to buy now with PMI or wait to save 20%?,5,4,5,4,5,3,,2,annual,mortgage affiliate
+32,Adjustable vs Fixed Mortgage: The Bet You're Making,Breakeven,When does an ARM beat a fixed-rate mortgage?,4,3,5,4,4,3,rates,,on rate moves,mortgage affiliate
+33,Is Home Insurance Breaking the Math of Owning? A State-by-State Look,Real Cost,How much has insurance changed the cost of owning?,4,5,4,3,3,4,,11,annual,home insurance affiliate
+34,"A $35,000 Wedding vs Investing It: The 30-Year View",Real Cost,What is the opportunity cost of big life events?,3,5,3,5,4,2,,,evergreen,
+35,529 vs Taxable vs Nothing: Paying for a Kid's College,Breakeven,What's the best way to save for college?,4,3,5,5,4,3,,,annual,529 plan affiliate
+36,"The Money Order of Operations, Simulated",Breakeven,"In what order should you pay debt, save, and invest?",5,4,5,5,4,3,newyear,5,evergreen,HYSA/brokerage affiliate
+37,Gold vs Stocks vs Houses: 50 Years of Data,Run It Back,Which asset actually built more wealth?,4,5,4,5,4,2,,,annual,brokerage affiliate
+38,Why Rent Keeps Going Up: The Economics in 9 Minutes,Money Behind,What actually drives rent growth?,3,5,3,4,3,4,,,evergreen,
+39,How Mortgage Rates Are Actually Set (and Why They're 7%),Money Behind,"What links the Fed, Treasuries and your mortgage rate?",4,4,4,4,4,3,rates,12,evergreen,mortgage affiliate
+40,How Long It Takes to Become a Millionaire on Any Salary,Breakeven,How many years to $1M at each income and savings rate?,5,5,4,5,5,2,,,evergreen,brokerage affiliate
+41,Coast FIRE: The Number Where You Can Stop Saving,Breakeven,How much do you need saved to stop contributing?,5,4,4,5,5,2,,13,evergreen,brokerage affiliate
+42,Pension Lump Sum vs Annuity: The Breakeven Age,Breakeven,Should you take a pension buyout?,4,2,5,5,4,3,,,evergreen,advisor matching sponsor
+43,Can a Lifelong Renter Retire Rich?,Breakeven,Does renting forever work if you invest the difference?,4,5,4,5,5,2,,,evergreen,brokerage affiliate
+44,House Hacking: Does Renting Out a Room Change the Math?,Breakeven,How does rental income change the rent-vs-buy breakeven?,4,4,4,4,4,2,,,evergreen,landlord software affiliate
+45,"Payday Loans: The Real APR, Visualized",Money Behind,How do payday loans and overdrafts really cost?,3,4,3,5,4,2,,,evergreen,credit builder affiliate
+46,Home Warranties and Extended Warranties: The Expected Value,Real Cost,Do warranty products pay out more than they cost?,4,3,3,5,3,2,,,evergreen,
+47,"Your Pay vs Inflation Since 2000, by Job",Paycheck,Which jobs gained or lost real purchasing power?,3,5,3,4,4,3,,,annual,
+48,"Retire at 45? We Simulated It 10,000 Times",Run It Back,What success rate does early retirement have?,4,5,4,5,4,4,,,evergreen,retirement planning sponsor
+49,The Stock Market's Worst Decades and What Came Next,Run It Back,What happened after the worst 10-year stretches?,3,5,4,5,4,3,,,evergreen,brokerage affiliate
+50,"Rent vs Buy in 50 US Metros, Ranked",Breakeven,In which cities does buying win fastest?,5,4,5,4,4,4,,,annual,mortgage/real estate affiliate
+51,When Leasing a Car Actually Wins,Breakeven,In which situations does leasing beat buying?,4,3,4,5,4,2,,,evergreen,auto affiliate
+52,"Paying Cash vs Financing a Car at 0%, 4%, 8%",Breakeven,When should you finance a car you could buy in cash?,4,3,4,5,5,2,,,evergreen,auto loan affiliate

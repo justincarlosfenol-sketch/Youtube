@@ -1,0 +1,4 @@
+# Production log (feeds the dashboard's revenue-per-production-hour metric). Update after publishing.
+series: Breakeven
+hours: 1.5        # human hours (review + narration + approval); Claude/machine time not counted
+cost: 0           # cash spent on this video

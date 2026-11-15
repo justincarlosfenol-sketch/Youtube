@@ -1,0 +1,58 @@
+# Every [S#] cited in script.yaml must exist here. `verified` = a human has
+# opened the primary source and confirmed the figure (QA warns until true).
+S1:
+  claim: "30-year fixed mortgage rate averaged 7.11% (week of 12 Nov 2026)"
+  source: "Freddie Mac Primary Mortgage Market Survey, release of 12 Nov 2026"
+  url: "https://www.globenewswire.com/news-release/2026/11/12/3402013/0/en/mortgage-rates-decline-for-fourth-consecutive-week-to-7-11.html"
+  primary: "https://www.freddiemac.com/pmms"
+  verified: false
+S2:
+  claim: "Median existing-home sales price $416,700 (October 2026)"
+  source: "National Association of Realtors, Existing-Home Sales, 12 Nov 2026"
+  url: "https://www.nar.realtor/newsroom/existing-home-sales-decreased-5-5-percent-october-nar-report"
+  verified: false
+S3:
+  claim: "Typical single-family rent $2,243/month, +3.2% YoY (Oct 2026); Zillow national rent-vs-buy break-even 7.8 years with 20% down"
+  source: "Zillow Observed Rent Index / Zillow rental market report, 12 Nov 2026"
+  url: "https://zillow.mediaroom.com/2026-11-12-A-house-doesnt-have-to-mean-a-mortgage-Renting-requires-14K-less-income-than-buying"
+  verified: false
+S4:
+  claim: "National effective property tax rate 0.90% on single-family homes (2025)"
+  source: "ATTOM 2025 Property Tax Analysis"
+  url: "https://www.attomdata.com/news/market-trends/home-sales-prices/2025-annual-tax-report"
+  verified: false
+S5:
+  claim: "Average homeowners insurance about $3,012/year (mid-2026)"
+  source: "Insurify 2026 home insurance report (via Insurance Business)"
+  url: "https://insurancebusinessmag.com/us/news/property/home-insurance-to-top-3000-as-us-affordability-crisis-deepens--insurify-569103.aspx"
+  verified: false
+S6:
+  claim: "Average total agent commission ~5.46%-5.84% in 2026 surveys; we assume 6% total selling costs incl. seller fees"
+  source: "FastExpert agent survey (Oct 2026); Clever Real Estate surveys (Feb & Aug 2026)"
+  url: "https://fastexpert.com/blog/real-estate-agent-commissions-by-state/"
+  verified: false
+S7:
+  claim: "Buyer closing costs ~2% of price (ClosingCorp national average ~$6,900 on $350k)"
+  source: "ClosingCorp data as reported by The Mortgage Reports"
+  url: "https://themortgagereports.com/35800/guide-to-mortgage-closing-costs-what-average-mortgage-costs-are-and-how-to-keep-yours-low"
+  verified: false
+S8:
+  claim: "Maintenance rule of thumb: 1% (routine) up to 4% of home value per year"
+  source: "Bankrate"
+  url: "https://www.bankrate.com/homeownership/most-common-home-maintenance-costs"
+  verified: false
+S9:
+  claim: "S&P/Case-Shiller US National HPI: 63.96 (Jan 1987) -> 332.68 (Apr 2026) = ~4.3%/yr compounded (our calculation)"
+  source: "S&P Cotality Case-Shiller U.S. National Home Price Index (FRED: CSUSHPINSA)"
+  url: "https://fred.stlouisfed.org/series/CSUSHPINSA"
+  verified: false
+S10:
+  claim: "S&P 500 total return ~10% per year (geometric), 1928-2025"
+  source: "Aswath Damodaran, Historical Returns on Stocks, Bonds and Bills (NYU Stern)"
+  url: "https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/histretSP.html"
+  verified: false
+M1:
+  claim: "All breakeven years, net-worth paths and sensitivities"
+  source: "Breakeven rent-vs-buy model (breakeven/models/rent_vs_buy.py), inputs above"
+  url: "https://github.com/justincarlosfenol-sketch/Youtube/blob/main/breakeven/models/rent_vs_buy.py"
+  verified: true
